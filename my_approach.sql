@@ -1,6 +1,6 @@
 # 1st: check how many product types we have in our warehouses
 # there are 110 types of product in stock
-SELECT COUNT(DISTINCT(productCode)) count_product_types FROM products;
+SELECT DISTINCT(productCode) count_product_types FROM products;
 
 # 2nd: check how many product types are never ordered
 # there is only one product S18_3233
@@ -33,5 +33,9 @@ GROUP BY p.warehouseCode;
 SELECT warehouseCode, productCode, (quantityInStock) actual_sum
 FROM products
 WHERE 1
+# WHERE warehouseCode = "a"
+# WHERE warehouseCode = "b"
+# WHERE warehouseCode = "c"
+# WHERE warehouseCode = "d"
 GROUP BY warehouseCode, productCode
-HAVING actual_sum > 2000
+HAVING actual_sum > 2000;
